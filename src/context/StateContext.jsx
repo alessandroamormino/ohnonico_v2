@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useMemo } from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 
 const StateContext = createContext();

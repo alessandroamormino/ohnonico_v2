@@ -1,23 +1,28 @@
-import { useEffect } from 'react';
-import { useRouterError, useNavigate, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Box, Typography, Button } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 export const ErrorPage = () => {
-	const { error } = useRouterError();
-	const navigate = useNavigate();
-	const location = useLocation();
-
-	useEffect(() => {
-		if (!error) {
-			navigate('/');
-		}
-	}, [error, navigate]);
-
 	return (
-		<div>
-			<h1>Error</h1>
-			<p>
-				<code>{location.pathname}</code> could not be found.
-			</p>
-		</div>
+		<Box
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+				justifyContent: "center",
+				height: "100vh",
+				textAlign: "center",
+			}}
+		>
+			<Typography variant="h1" gutterBottom>
+					404
+			</Typography>
+			<Typography variant="h6" gutterBottom>
+					Page Not Found
+			</Typography>
+			<Button variant="contained" sx={{borderRadius: 0, backgroundColor: "#000", py: 1, px: 2}} component={NavLink} to="/">
+					Torna alla home
+			</Button>
+		</Box>
 	);
 }

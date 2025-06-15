@@ -1,2 +1,2 @@
-export {Root} from './Root';
-export {routes} from './routes';
+export { Root } from './Root';
+export { routes } from './routes';
