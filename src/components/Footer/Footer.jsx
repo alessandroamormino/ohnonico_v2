@@ -35,6 +35,9 @@ export const Footer = () => {
         </Box>
         {/* Center: Social icons e copyright */}
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+					<Typography variant="body2" sx={{ fontFamily: "ExtraBold", fontSize: "1.7rem", mb: 1 }}>
+						Love season means great season
+					</Typography>
           <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mb: 2 }}>
             <Link
               href="https://www.linkedin.com/in/niccol%C3%B2-valsecchi-3b9b52246/"
