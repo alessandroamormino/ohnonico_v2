@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme, styled } from "@mui/material/styles";
 
-// Icona toggle custom: mostra il "+" e passa al "-" animando la rotazione e facendo scomparire la linea verticale.
+// custom toggle icon: displays a "+" then transitions to a "-" with animated rotation, removing the vertical line.
 const ToggleIcon = styled(Box, {
 	shouldForwardProp: (prop) => prop !== "active",
 })(({ active }) => ({
@@ -41,8 +41,10 @@ export const NavBar = () => {
 	const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 	const [menuOpen, setMenuOpen] = useState(false);
 	const toggleMenu = () => setMenuOpen((prev) => !prev);
+	const location = useLocation();
+	const isHomePage = location.pathname === '/';
 
-	// Lista dei link (stessa per desktop e mobile)
+	// navigation links list
 	const navLinks = (
 		<Box
 			component="ul"
@@ -102,21 +104,22 @@ export const NavBar = () => {
 	);
 
 	return (
-		<Box sx={{ width: "100%", bgcolor: "#FFF" }}>
+		<Box sx={{ width: "100%" }}>
 			{/* Navbar fixed sempre in alto */}
 			<Box
 				sx={{
-					height: "100px",
-					bgcolor: "#FFF",
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "space-between",
-					px: 2,
-					position: "fixed", // <-- Cambiato da "relative" a "fixed"
-					top: 0,
-					left: 0,
-					right: 0,
-					zIndex: 3000, // sopra l'overlay
+						height: "100px",
+						bgcolor: isHomePage ? "transparent" : "#FFF", // Trasparente solo sulla homepage
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+						px: 2,
+						position: "fixed",
+						top: 0,
+						left: 0,
+						right: 0,
+						zIndex: 3000,
+						transition: "background-color 0.3s ease", // Transizione smooth
 				}}
 			>
 				{/* Logo */}
@@ -129,16 +132,20 @@ export const NavBar = () => {
 						/>
 					</NavLink>
 				</Box>
-				{/* Desktop Navigation */}
+
+				{/* desktop Navigation */}
 				{!isMobile && (
 					<Box
 						sx={{
 							display: "flex",
 							gap: 4,
 							alignItems: "center",
-							"& a": { textDecoration: "none", color: "inherit" },
+							"& a": { 
+									textDecoration: "none", 
+									color: isHomePage ? "#FFF" : "inherit" // Testo bianco sulla homepage
+							},
 							"& a:hover": {
-								fontStyle: "italic",
+									fontStyle: "italic",
 							},
 							fontSize: theme.typography.navigation.fontSize,
 							fontFamily: theme.typography.navigation.fontFamily,
@@ -149,14 +156,15 @@ export const NavBar = () => {
 						<NavLink to="/illustrations">Illustrations</NavLink>
 					</Box>
 				)}
-				{/* Toggle Icon per mobile */}
+
+				{/* toggle Icon mobile */}
 				{isMobile && <ToggleIcon active={menuOpen} onClick={toggleMenu} />}
 			</Box>
 
-			{/* Placeholder per compensare lo spazio occupato dalla navbar fissa */}
-			<Box sx={{ height: "100px" }} />
+			{/* placeholder space - solo se NON siamo sulla homepage */}
+			{!isHomePage && <Box sx={{ height: "100px" }} />}
 
-			{/* Overlay Mobile: fixed da sotto la navbar fino al fondo */}
+			{/* overlay Mobile */}
 			{isMobile && (
 				<Box
 					sx={{
