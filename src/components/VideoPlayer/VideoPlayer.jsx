@@ -10,6 +10,8 @@ export const VideoPlayer = ({ showControls = false, videoSrc, poster}) => {
       }}
     >
       <video
+				loading="lazy"
+        preload="metadata"
         style={{ width: '100%', height: "100%" }}
         controls={showControls}
         poster={poster}
