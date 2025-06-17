@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Root } from "@/routing";
-import { ErrorPage, HomePage, ShowreelPage } from "@/views";
+import { ErrorPage, HomePage, ShowreelPage, AboutPage } from "@/views";
 
 export const routes = createBrowserRouter([
 	{
@@ -14,6 +14,10 @@ export const routes = createBrowserRouter([
 			{
 				path: '/showreel',
 				element: <ShowreelPage />
+			},
+			{
+				path: '/about',
+				element: <AboutPage />
 			}
 		]
 	}

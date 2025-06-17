@@ -4,3 +4,5 @@ export { ErrorPage } from './ErrorPage';
 export { HomePage } from './HomePage';
 // Showreel
 export { ShowreelPage } from './ShowreelPage';
+// About
+export { AboutPage } from './AboutPage';
