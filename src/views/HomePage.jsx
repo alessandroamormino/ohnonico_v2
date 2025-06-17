@@ -6,7 +6,7 @@ export const HomePage = () => {
 		<Box
 			sx={{
 				width: '100%',
-				height: 'calc(100vh - 100px)',
+				height: '100vh',
 			}}
 		>
 			<VideoBackground videoSrc="/videos/Short/ONN_REEL22_CUT_5SEC_V2.mp4" link="/showreel"/>
