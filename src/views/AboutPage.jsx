@@ -48,24 +48,6 @@ export const AboutPage = () => {
     };
   }, []);
 
-  const buttonStyles = {
-    textDecoration: 'none',
-    color: '#000000',
-    fontFamily: 'SemiBold',
-    borderRadius: '1.5rem',
-    padding: '.5rem 2rem',
-    background: '#ffffff',
-    border: '2px solid #000000',
-    transition: 'all 0.3s ease',
-    textTransform: 'uppercase',
-    letterSpacing: '2px',
-		width: { xs: '150px', sm: '170px', md: '200px' },
-    '&:hover': {
-      background: '#000000',
-      color: '#ffffff'
-    }
-  };
-
 	const handleDownload = (filePath, fileName) => {
 		const link = document.createElement('a');
 		link.href = filePath;
@@ -227,7 +209,7 @@ export const AboutPage = () => {
 					>
 						<Button 
 							onClick={() => handleDownload('/pdf/Onn_NiccoloValsecchi_Cv_2025 2.pdf', 'Onn_NiccoloValsecchi_CV_2025.pdf')}
-							sx={buttonStyles}
+							variant="outlined-custom"
 						>
 							RESUME
 						</Button>
@@ -241,7 +223,7 @@ export const AboutPage = () => {
 					>
 						<Button 
 							onClick={() => handleDownload('/pdf/ONN_PORTFOLIO23.pdf', 'ONN_PORTFOLIO23.pdf')}
-							sx={buttonStyles}
+							variant="outlined-custom"
 						>
 							PORTFOLIO
 						</Button>

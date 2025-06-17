@@ -21,5 +21,32 @@ export const theme = createTheme({
 			fontFamily: "Light",
 			fontSize: "1.2rem",
 		},
-	}
+	},
+	components: {
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'outlined-custom' },
+          style: {
+            textDecoration: 'none',
+            color: '#000000',
+            fontFamily: 'SemiBold',
+            borderRadius: '1.5rem',
+            padding: '.5rem 2rem',
+            background: '#ffffff',
+            border: '2px solid #000000',
+            transition: 'all 0.3s ease',
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+            width: '200px',
+            '&:hover': {
+              background: '#000000',
+              color: '#ffffff',
+              border: '2px solid #000000',
+            }
+          }
+        }
+      ]
+    }
+  }
 });
