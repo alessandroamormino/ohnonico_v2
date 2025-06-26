@@ -6,3 +6,5 @@ export { HomePage } from './HomePage';
 export { ShowreelPage } from './ShowreelPage';
 // About
 export { AboutPage } from './AboutPage';
+// Works
+export { WorksPage } from './WorksPage';

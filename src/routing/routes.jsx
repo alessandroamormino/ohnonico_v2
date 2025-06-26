@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Root } from "@/routing";
-import { ErrorPage, HomePage, ShowreelPage, AboutPage } from "@/views";
+import { ErrorPage, HomePage, ShowreelPage, AboutPage, WorksPage } from "@/views";
 
 export const routes = createBrowserRouter([
 	{
@@ -18,6 +18,10 @@ export const routes = createBrowserRouter([
 			{
 				path: '/about',
 				element: <AboutPage />
+			},
+			{
+				path: '/works',
+				element: <WorksPage />
 			}
 		]
 	}
